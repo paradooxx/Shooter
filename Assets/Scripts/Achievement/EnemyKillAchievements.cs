@@ -1,7 +1,6 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class EnemyKillAchievements : MonoBehaviour
@@ -20,7 +19,6 @@ public class EnemyKillAchievements : MonoBehaviour
 
     private void Awake()
     {
-        
         achievementManager = GetComponent<AchievementManager>();
     }
 
@@ -38,7 +36,7 @@ public class EnemyKillAchievements : MonoBehaviour
             notificationEvent?.Invoke();
         }
         descriptionText.text = "Kill " + enemyAchievementList[GameDataManager.Instance.EnemyAchievementIndex].achievementCount + " enemies";
-        AchivementCompleteCheck();
+        AchievementCompleteCheck();
         EnemyKillUpdateUI();
     }
 
@@ -48,8 +46,15 @@ public class EnemyKillAchievements : MonoBehaviour
         coinDisplayText.text = enemyAchievementList[GameDataManager.Instance.EnemyAchievementIndex].rewardAmount.ToString();
     }
 
-    private void AchivementCompleteCheck()
+    private void AchievementCompleteCheck()
     {
+        if(GameDataManager.Instance.IsEnemyChallengeFinished == true)
+        {
+            enemyAchievementButton.image.sprite = achievementManager.brownButton;
+            enemyAchievementButton.GetComponentInChildren<TMP_Text>().text = "Completed";
+            return;
+        }
+
         if(IsAchievementComplete(GameDataManager.Instance.EnemyAchievementIndex))
         {
             isEnemyAchievementComplete = true;
@@ -78,9 +83,16 @@ public class EnemyKillAchievements : MonoBehaviour
             enemyAchievementButton.image.sprite = achievementManager.redButton;
             notificationEvent?.Invoke();
             isEnemyAchievementComplete = false;
-            GameDataManager.Instance.EnemyAchievementIndex ++;
+            if(GameDataManager.Instance.EnemyAchievementIndex < enemyAchievementList.Length - 1)
+            {
+                GameDataManager.Instance.EnemyAchievementIndex ++;
+            }
+            else
+            {
+                GameDataManager.Instance.IsEnemyChallengeFinished = true;
+            }
             EnemyKillUpdateUI();
-            AchivementCompleteCheck();
+            AchievementCompleteCheck();
             descriptionText.text = "Kill " + enemyAchievementList[GameDataManager.Instance.EnemyAchievementIndex].achievementCount + " enemies";
             notificationEvent?.Invoke();
         }

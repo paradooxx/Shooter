@@ -48,6 +48,13 @@ public class LevelProgressionAchievements : MonoBehaviour
 
     private void AchievementCompleteCheck()
     {
+        if(GameDataManager.Instance.IsLevelChallengeFinished == true)
+        {
+            levelReachedButton.image.sprite = achievementManager.brownButton;
+            levelReachedButton.GetComponentInChildren<TMP_Text>().text = "Completed";
+            return;
+        }
+
         if(IsAchievementComplete(GameDataManager.Instance.LevelIndex))
         {
             isLevelReached = true;
@@ -75,7 +82,14 @@ public class LevelProgressionAchievements : MonoBehaviour
             CoinAnimation.Instance.CountCoins();
             levelReachedButton.image.sprite = achievementManager.redButton;
             isLevelReached = false;
-            GameDataManager.Instance.LevelIndex ++;
+            if(GameDataManager.Instance.LevelIndex < levelReachedList.Length - 1)
+            {
+                GameDataManager.Instance.LevelIndex ++;
+            }
+            else
+            {
+                GameDataManager.Instance.IsLevelChallengeFinished = true;
+            }
             LevelReachedUpdateUI();
             AchievementCompleteCheck();
             descriptionText.text = "Complete " + levelReachedList[GameDataManager.Instance.LevelIndex].achievementCount + " levels";

@@ -20,10 +20,12 @@ public class GameDataManager : MonoBehaviour
     [Header("Enemy Achievement Data")]
     [SerializeField] private int enemyAchievementIndex;
     [SerializeField] private int enemyKilledCount;
+    [SerializeField] private bool isEnemyChallengeFinished;
 
     [Header("Level Achievement Data")]
     [SerializeField] private int levelIndex;
     [SerializeField] private int levelReached;
+    [SerializeField] private bool isLevelChallengeFinished;
 
     [Header("Skin Achievement Data")]
     [SerializeField] private bool isSkinAchievementButtonPressed;
@@ -56,6 +58,10 @@ public class GameDataManager : MonoBehaviour
     public bool IsSkinAchievementButtonPressed { get => isSkinAchievementButtonPressed; set { isSkinAchievementButtonPressed = value; SaveGameData(); }}
 
     public bool IsNoAdsSubPurchased { get => isNoAdsSubPurchased; set { isNoAdsSubPurchased = value; SaveGameData(); }}
+
+    public bool IsEnemyChallengeFinished { get => isEnemyChallengeFinished; set { isEnemyChallengeFinished = value; SaveGameData(); }} 
+
+    public bool IsLevelChallengeFinished { get => isLevelChallengeFinished; set { isLevelChallengeFinished = value; SaveGameData(); }}
 
     public bool[] IsPlayerUnlocked 
     {
@@ -135,9 +141,11 @@ public class GameDataManager : MonoBehaviour
 
         EnemyAchievementIndex = gameSaveData.EnemyAchievementIndex;
         EnemyKilledCount = gameSaveData.EnemyKilledCount;
+        IsEnemyChallengeFinished = gameSaveData.IsEnemyChallengeFinished;
 
         LevelIndex = gameSaveData.LevelIndex;
         LevelReached = gameSaveData.LevelReached;
+        IsLevelChallengeFinished = gameSaveData.IsLevelChallengeFinished;
 
         IsSkinAchievementButtonPressed = gameSaveData.IsSkinAchievementButtonPressed;
 

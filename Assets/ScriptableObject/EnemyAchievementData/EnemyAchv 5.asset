@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2d372448ad55d4a8b6be661a2890d8, type: 3}
   m_Name: EnemyAchv 5
   m_EditorClassIdentifier: 
-  achievementCount: 3000
+  achievementCount: 15
   rewardAmount: 300
   isCompleted: 0

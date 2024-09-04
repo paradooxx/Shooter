@@ -45,7 +45,8 @@ public class UIManager : MonoBehaviour
         mainBgPanel.SetActive(true);
         HideAllPanel();
 
-        deleteButton.onClick.AddListener(() => SaveSystem.DeleteSaveData());
+        // deleteButton.onClick.AddListener(() => SaveSystem.DeleteSaveData());
+        // SaveSystem.DeleteSaveData();
     }
 
     private void Start()

@@ -18,8 +18,8 @@ public class PlayerSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        
         SetState(GameDataManager.Instance.SelectedPlayerIndex);
+        PlayerPanelDisplay.Instance.ChangePlayerPanelDisplay(GameDataManager.Instance.SelectedPlayerIndex);
         // SetState(GameDataManager.Instance.SelectedPlayerIndex);
     }
 

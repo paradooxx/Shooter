@@ -15,9 +15,11 @@ public class GameSaveData
 
     public int EnemyAchievementIndex;
     public int EnemyKilledCount;
+    public bool IsEnemyChallengeFinished;
 
     public int LevelIndex;
     public int LevelReached;
+    public bool IsLevelChallengeFinished;
 
     public bool IsSkinAchievementButtonPressed;
 
@@ -39,9 +41,11 @@ public class GameSaveData
 
         EnemyAchievementIndex = gameDataManager.EnemyAchievementIndex;
         EnemyKilledCount = gameDataManager.EnemyKilledCount;
+        IsEnemyChallengeFinished = gameDataManager.IsEnemyChallengeFinished;
 
         LevelIndex = gameDataManager.LevelIndex;
         LevelReached = gameDataManager.LevelReached;
+        IsLevelChallengeFinished = gameDataManager.IsLevelChallengeFinished;
 
         IsNoAdsSubPurchased = gameDataManager.IsNoAdsSubPurchased;
 

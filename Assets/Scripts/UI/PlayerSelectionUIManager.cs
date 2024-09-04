@@ -14,6 +14,8 @@ public class PlayerSelectionUIManager : MonoBehaviour
     [SerializeField] private Button previousButton;
     [SerializeField] private Button nextButton;
 
+    // [SerializeField] private PlayerPanelDisplay playerPanelDisplay;
+
     private GameObject activePlayerPanel;
     private List<GameObject> unactivePlayerPanels;
     private List<PlayerType> playerTypes;
@@ -97,6 +99,7 @@ public class PlayerSelectionUIManager : MonoBehaviour
             ManagePlayerPanels(playerTypes[currentIndex]);
             UpdateButtons();
         }
+        PlayerPanelDisplay.Instance.ChangePlayerPanelDisplay(currentIndex);
         SFXManager.Instance.PlaySound(SoundType.Button, transform);
     }
 
@@ -108,6 +111,7 @@ public class PlayerSelectionUIManager : MonoBehaviour
             ManagePlayerPanels(playerTypes[currentIndex]);
             UpdateButtons();
         }
+        PlayerPanelDisplay.Instance.ChangePlayerPanelDisplay(currentIndex);
         SFXManager.Instance.PlaySound(SoundType.Button, transform);
     }
 
