@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fec7b914e8240408f8d815f4018ac1, type: 3}
+  m_Name: Wizard
+  m_EditorClassIdentifier: 
+  health: 120
+  fireRate: 1.2
+  Health: 780000008c000000a0000000b4000000c8000000
+  FireRate:
+  - 1.2
+  - 1.5
+  - 1.7
+  - 1.85
+  - 2
+  currentLevel: 1
+  isUnlocked: 0
+  isSelected: 0
+  initialPrice: 10000
+  upgradePrice: 00000000b0040000100e000070170000e02e0000

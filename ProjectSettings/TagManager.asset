@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - FxTemporaire
+  - Barrel
+  - Bullet
+  - WeaponSelect
+  - Rifle
+  - PlayerX
+  - AttackArea
+  - Pistol
+  - ArcherX
+  - ClickBlock
+  - Slash
+  - WizardX
+  - KnightX
+  - Special
+  - SpearinX
+  - PlayerPlatform
+  - InstantiatePoint
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - Barrel
+  - UIModelLayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

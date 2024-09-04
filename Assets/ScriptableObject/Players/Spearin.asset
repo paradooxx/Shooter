@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fec7b914e8240408f8d815f4018ac1, type: 3}
+  m_Name: Spearin
+  m_EditorClassIdentifier: 
+  health: 175
+  fireRate: 1
+  Health: af000000c8000000e1000000fa00000013010000
+  FireRate:
+  - 1
+  - 1.3
+  - 1.6
+  - 1.9
+  - 2.2
+  currentLevel: 1
+  isUnlocked: 0
+  isSelected: 0
+  initialPrice: 5000
+  upgradePrice: 0000000020030000d00700009411000028230000
