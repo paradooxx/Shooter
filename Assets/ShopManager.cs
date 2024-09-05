@@ -7,6 +7,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Button watchAdToGetCoinButton;
     [SerializeField] private Button unlockAllSkinPlusCoinsButton;
     [SerializeField] private Button noAdsPlusCoinsButton;
+    [SerializeField] private Button privacyPolicyButton;
+    [SerializeField] private Button termsOfServiceButton;
+
+    [SerializeField] private SkinUnlockedAchievement skinUnlockedAchievement;
 
     private void Start()
     {
@@ -25,6 +29,9 @@ public class ShopManager : MonoBehaviour
             noAdsPlusCoinsButton.interactable = false;  
             noAdsPlusCoinsButton.GetComponentInChildren<TMP_Text>().text = "Bought";
         });
+
+        privacyPolicyButton.onClick.AddListener(PrivacyPolicy);
+        termsOfServiceButton.onClick.AddListener(TermsOfService);
     }
 
     private void WatchAdGetCoin()
@@ -57,13 +64,29 @@ public class ShopManager : MonoBehaviour
         {
             GameDataManager.Instance.IsPlayerUnlocked[i] = true;
         }
+        skinUnlockedAchievement.CheckSkinUnlock();
         GameDataManager.Instance.SaveGameData();
+        BuyCoins(5000);
     }
 
     private void NoAdsPlus1000Coins()
     {
-        Coins.CounterUpdateUIandCoin(1000, true);
-        CoinAnimation.Instance.CountCoins();
         NoAdsPurchase();
+        BuyCoins(10000);
+    }
+
+    private void BuyCoins(int coinAmount)
+    {
+        Coins.UpdateUIandCoin(coinAmount, true);
+        CoinAnimation.Instance.CountCoins();
+    }
+
+    private void PrivacyPolicy()
+    {
+        Application.OpenURL("https://sapniverse.com/gamesprivacy");
+    }
+    private void TermsOfService()
+    {
+        Application.OpenURL("https://sapniverse.com/gamesterms");
     }
 }

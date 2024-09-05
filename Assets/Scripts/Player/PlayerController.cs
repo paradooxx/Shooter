@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         RotateTowardsNearestEnemy();
+        if(GameStateManager.CurrentGameState == GameState.Win)
+        {
+            bulletFireRate = 0f;
+        }
     }
 
     private void MovePlayer()
@@ -135,5 +139,10 @@ public class PlayerController : MonoBehaviour
         enemy = EnemyManager.FindNearestEnemy(transform.position);
 
         GameStatus.Instance.onGameWin?.Invoke();
+    }
+
+    private void TriggerGameWin()
+    {
+        Invoke("TriggerGameWin", 2f);
     }
 }

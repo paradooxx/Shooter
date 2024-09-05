@@ -15,11 +15,6 @@ public class LevelGenerator : MonoBehaviour
         LoadLevelData();
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     private void LoadLevelData()
     {
         level = LevelDataContainer.Instance.level;
@@ -27,8 +22,6 @@ public class LevelGenerator : MonoBehaviour
 
     public void NextLevel()
     {
-        // level++;
-        // gameDataManager.Level = level;
         gameDataManager.Level ++;
         gameDataManager.LevelReached ++;
     }

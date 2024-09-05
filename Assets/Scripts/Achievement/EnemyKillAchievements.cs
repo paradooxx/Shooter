@@ -81,7 +81,6 @@ public class EnemyKillAchievements : MonoBehaviour
             Coins.CounterUpdateUIandCoin(amount, true);
             CoinAnimation.Instance.CountCoins();
             enemyAchievementButton.image.sprite = achievementManager.redButton;
-            notificationEvent?.Invoke();
             isEnemyAchievementComplete = false;
             if(GameDataManager.Instance.EnemyAchievementIndex < enemyAchievementList.Length - 1)
             {

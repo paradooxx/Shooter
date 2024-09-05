@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
         mainBgPanel.SetActive(true);
         HideAllPanel();
 
-        // deleteButton.onClick.AddListener(() => SaveSystem.DeleteSaveData());
+        deleteButton.onClick.AddListener(() => SaveSystem.DeleteSaveData());
         // SaveSystem.DeleteSaveData();
     }
 
@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour
             case GameState.Win:
                 StartCoroutine(SetWLPanel(gameWinPanel));
                 shopPlusButton.interactable = false;
-                Time.timeScale = 0f;
+                // Time.timeScale = 0f;
                 break;
             case GameState.Loose:
                 StartCoroutine(SetWLPanel(gameLoosePanel));
@@ -163,7 +163,9 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator SetWLPanel(GameObject panel)
     {
-        yield return new WaitForSecondsRealtime(0.8f);
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
         DisableActivePanel();
         unactivePanels.Remove(panel);
         activePanel = panel;

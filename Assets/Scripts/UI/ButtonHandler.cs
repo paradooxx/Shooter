@@ -84,7 +84,7 @@ public class ButtonHandler : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadSceneAsync(0);
+            SceneManager.LoadSceneAsync(1);
             AdManager.Instance.ShowInterstitialAd();
         }
         ButtonSound();  
@@ -92,7 +92,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
         AdManager.Instance.ShowInterstitialAd();
         ButtonSound();
     }
