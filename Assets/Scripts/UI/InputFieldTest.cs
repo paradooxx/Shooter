@@ -10,16 +10,16 @@ public class InputFieldTest : MonoBehaviour
     public int minthresholdValue = 10;
     public int maxthresholdValue = 100; 
 
-    void Start()
+    private void Start()
     {
-        // CheckInputValue(inputField.text);
-        targetObject.SetActive(false);
+        inputField.text = "16";
+        CheckInputValue(inputField.text);
         
         inputField.onValueChanged.AddListener(delegate { CheckInputValue(inputField.text); });
         targetObject.GetComponent<Button>().onClick.AddListener(() => {SceneManager.LoadSceneAsync(1);});
     }
 
-    void CheckInputValue(string input)
+    private void CheckInputValue(string input)
     {
         int value;
         if (int.TryParse(input, out value))

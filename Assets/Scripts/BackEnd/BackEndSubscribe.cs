@@ -203,5 +203,6 @@ public sealed class BackendSubscribe : MonoBehaviour
         public string message;
         public int totalEarning;
         public int completedLevels;
+        public bool? showAds;
     }
 }

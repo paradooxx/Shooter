@@ -25993,7 +25993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1009819879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30635,6 +30635,7 @@ MonoBehaviour:
   noAdsPlusCoinsButton: {fileID: 1538883019}
   privacyPolicyButton: {fileID: 227809918}
   termsOfServiceButton: {fileID: 1957412893}
+  skinUnlockedAchievement: {fileID: 722017480}
 --- !u!1 &1215807410
 GameObject:
   m_ObjectHideFlags: 0
