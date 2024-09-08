@@ -51842,6 +51842,7 @@ MonoBehaviour:
   isLevelChallengeFinished: 0
   isSkinAchievementButtonPressed: 0
   isNoAdsSubPurchased: 0
+  showConfirmAgePanel: 0
 --- !u!1 &2130041851
 GameObject:
   m_ObjectHideFlags: 0

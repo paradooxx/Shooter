@@ -33,6 +33,9 @@ public class GameDataManager : MonoBehaviour
     [Header("Ads Data")]
     [SerializeField] private bool isNoAdsSubPurchased;
 
+    [Header("Other Datas")]
+    [SerializeField] private bool showConfirmAgePanel;
+
     public static GameDataManager Instance;
 
     public int Level { get => level; set { level = value; SaveGameData(); }}
@@ -62,6 +65,8 @@ public class GameDataManager : MonoBehaviour
     public bool IsEnemyChallengeFinished { get => isEnemyChallengeFinished; set { isEnemyChallengeFinished = value; SaveGameData(); }} 
 
     public bool IsLevelChallengeFinished { get => isLevelChallengeFinished; set { isLevelChallengeFinished = value; SaveGameData(); }}
+
+    public bool ShowConfirmAgePanel { get => showConfirmAgePanel; set { showConfirmAgePanel = value; SaveGameData(); }}
 
     public bool[] IsPlayerUnlocked 
     {
@@ -118,7 +123,16 @@ public class GameDataManager : MonoBehaviour
     private void Awake()
     {
         LoadGameData();
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         Application.targetFrameRate = 60;
     }
 
@@ -150,6 +164,8 @@ public class GameDataManager : MonoBehaviour
         IsSkinAchievementButtonPressed = gameSaveData.IsSkinAchievementButtonPressed;
 
         IsNoAdsSubPurchased = gameSaveData.IsNoAdsSubPurchased;
+
+        ShowConfirmAgePanel = gameSaveData.ShowConfirmAgePanel;
     }
 
     public void SaveGameData()

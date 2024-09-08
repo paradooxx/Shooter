@@ -25,6 +25,8 @@ public class GameSaveData
 
     public bool IsNoAdsSubPurchased;
 
+    public bool ShowConfirmAgePanel;
+
     public GameSaveData(GameDataManager gameDataManager)
     {
         Level = gameDataManager.Level;
@@ -50,6 +52,8 @@ public class GameSaveData
         IsNoAdsSubPurchased = gameDataManager.IsNoAdsSubPurchased;
 
         IsSkinAchievementButtonPressed = gameDataManager.IsSkinAchievementButtonPressed;
+
+        ShowConfirmAgePanel = gameDataManager.ShowConfirmAgePanel;
         
         for (int i = 0 ; i < IsPlayerUnlocked.Length ; i++)
         {

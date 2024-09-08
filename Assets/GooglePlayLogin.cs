@@ -3,7 +3,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System;
+using UnityEngine.UI;
 
 public class GooglePlayLogin : MonoBehaviour
 {
@@ -11,63 +11,53 @@ public class GooglePlayLogin : MonoBehaviour
     [SerializeField] private TMP_Text googleUserName;
     [SerializeField] private TMP_Text googleAvatarURL;
 
-    private Action updateUIAction;
+    [SerializeField] private GameObject confirmAgePanel;
 
-    void Start()
+    [SerializeField] private Button retryButton;
+
+    private const string firstTimeLoginStatus = "firstTimeLoginStatus";
+
+    private bool firstTimeLogin = true;
+
+    private void Awake()
     {
+        firstTimeLogin = PlayerPrefs.GetInt(firstTimeLoginStatus, 1) == 1;
+    }
+
+    private void Start()
+    {
+        retryButton.onClick.AddListener(() => SignIn());
         SignIn();
     }
 
     public void SignIn()
     {
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
-        Social.localUser.Authenticate((bool success) =>
-        {
-            if (success)
-            {
-                Debug.Log("Login successful!");
-
-                // Retrieve Player Information
-                string userId = Social.localUser.id;                   // Google Player ID
-                string userName = Social.localUser.userName;           // Player Display Name
-                // string playerEmail = ((PlayGamesLocalUser)Social.localUser).Email;  // Player Email
-                string userAvatarUrl = Social.localUser.image != null ? Social.localUser.image.ToString() : "No Avatar";  // Avatar URL
-
-                googleUserId.text = userId;
-                googleUserName.text = userName;
-                googleAvatarURL.text = userAvatarUrl;
-            }
-            else
-            {
-                Debug.Log("Login failed.");
-            }
-        });
     }
 
     internal void ProcessAuthentication(SignInStatus signInStatus)
     {
         if (signInStatus == SignInStatus.Success)
         {
-            Debug.Log("Sign-in successful");
+            if(firstTimeLogin)
+            {
+                confirmAgePanel.SetActive(true);
+                PlayerPrefs.SetInt(firstTimeLoginStatus, firstTimeLogin ? 1 : 0);
+            }
+            else
+            {
+                confirmAgePanel.SetActive(false);
+                Invoke("LoadScene", 5f);
+            }
         }
         else
         {
             Debug.LogError("Sign-in failed");
-            Invoke("LoadScene", 5f);
         }
     }
 
     void LoadScene()
     {
         SceneManager.LoadSceneAsync(1); 
-    }
-
-    void Update()
-    {
-        if (updateUIAction != null)
-        {
-            updateUIAction.Invoke(); 
-            updateUIAction = null; 
-        }
     }
 }
