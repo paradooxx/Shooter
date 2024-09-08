@@ -21,7 +21,6 @@ public class GameWinUI : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
     }
 
     void Start()

@@ -17,6 +17,7 @@ public class GooglePlayLogin : MonoBehaviour
 
     [SerializeField] private GameObject confirmAgePanel;
     [SerializeField] private GameObject standbyPanel;
+    [SerializeField] private GameObject retryLoginPanel;
 
     [SerializeField] private Button retryButton;
     
@@ -34,7 +35,7 @@ public class GooglePlayLogin : MonoBehaviour
     private void Start()
     {
         PlayGamesPlatform.Activate();
-        // retryButton.onClick.AddListener(() => SignIn());
+        retryButton.onClick.AddListener(() => SignIn());
         ShowStandbyScreen("Authenticating...");
         // Social.localUser.Authenticate (ProcessAuthentication);
         SignIn();
@@ -66,13 +67,14 @@ public class GooglePlayLogin : MonoBehaviour
             googleUserName.text = Social.localUser.userName;
             googleUserId.text = Social.localUser.id;
             Texture2D texture2D = Social.localUser.image;
-            avatarImage.sprite = Sprite.Create(texture2D, new Rect (0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0f, 0f));
+            // avatarImage.sprite = Sprite.Create(texture2D, new Rect (0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0f, 0f));
             successText.text = "Succesful";
         }
         else
         {
             Debug.LogError("Sign-in failed");
             ShowStandbyScreen("Authentication Failed. Please restart the app.");
+            retryLoginPanel.gameObject.SetActive(true);
             successText.text = "Failed!";
         }
     }

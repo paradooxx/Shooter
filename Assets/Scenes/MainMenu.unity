@@ -2007,6 +2007,7 @@ MonoBehaviour:
   statusText: {fileID: 2100454617}
   confirmAgePanel: {fileID: 1486945988}
   standbyPanel: {fileID: 913431168}
+  retryLoginPanel: {fileID: 1506652113}
   retryButton: {fileID: 1846636544}
   avatarImage: {fileID: 2006353985}
 --- !u!4 &1552419366
@@ -2991,7 +2992,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 2000}
+  m_ReferenceResolution: {x: 900, y: 2000}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3040,9 +3041,9 @@ RectTransform:
   - {fileID: 1617710635}
   - {fileID: 796231503}
   - {fileID: 1486945989}
-  - {fileID: 1506652114}
   - {fileID: 2006353987}
   - {fileID: 913431169}
+  - {fileID: 1506652114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
