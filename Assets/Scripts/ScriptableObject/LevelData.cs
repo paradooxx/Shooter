@@ -5,6 +5,7 @@ public class LevelData : ScriptableObject
 {   
     [Header("Level")]
     public int level;
+    public int prizeCoin;
 
     [Space]
     [Header("Enemies")]

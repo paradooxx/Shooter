@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 4
   m_EditorClassIdentifier: 
   level: 4
+  prizeCoin: 40
   enemyCount: 01000000010000000100000001000000
   isBossLevel: 0
   initialEnemySpawnTime: 3

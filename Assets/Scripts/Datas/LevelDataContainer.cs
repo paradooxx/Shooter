@@ -5,6 +5,7 @@ public class LevelDataContainer : MonoBehaviour
     [SerializeField] private LevelData[] levelData;
 
     public int level { get; private set; } 
+    public int prizeCoin { get; private set; }
     
     //Enemues
     public int[] enemyCount { get; private set; }
@@ -68,6 +69,7 @@ public class LevelDataContainer : MonoBehaviour
         }
 
         level = levelData[index].level;
+        prizeCoin = levelData[index].prizeCoin;
         for (int i = 0; i < levelData[index].enemyCount.Length; i++)
         {
             enemyCount[i] = levelData[index].enemyCount[i];

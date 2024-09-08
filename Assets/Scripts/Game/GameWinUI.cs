@@ -11,6 +11,8 @@ public class GameWinUI : MonoBehaviour
     [SerializeField] private bool isGameWinPanel;
     [SerializeField] private TMP_Text coinText;
     [SerializeField] private Button doubleButton;
+
+    private int prizeAmount;
     public UnityEvent OnVictoryTextOver;
     
     private void Awake()
@@ -19,16 +21,18 @@ public class GameWinUI : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
     }
 
     void Start()
     {
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        prizeAmount = LevelDataContainer.Instance.prizeCoin;
         StartCoroutine(StartVictoryAnimation());
         if(isGameWinPanel)       
         {
             SFXManager.Instance.PlaySound(SoundType.GameWin, transform);
-            coinText.text = 100.ToString();
+            coinText.text = prizeAmount.ToString();
         }
         else
         {
@@ -50,7 +54,7 @@ public class GameWinUI : MonoBehaviour
         OnVictoryTextOver?.Invoke();
         if(isGameWinPanel)
         {
-            Coins.CounterUpdateUIandCoin(100, true);
+            Coins.CounterUpdateUIandCoin(prizeAmount, true);
             yield return new WaitForSecondsRealtime(0.5f);
             CoinAnimation.Instance.CountCoins();
         }
@@ -62,7 +66,7 @@ public class GameWinUI : MonoBehaviour
         {
             if(isRewarded)
             {
-                Coins.CounterUpdateUIandCoin(100, true);
+                Coins.CounterUpdateUIandCoin(prizeAmount, true);
                 CoinAnimation.Instance.CountCoins();
                 doubleButton.gameObject.SetActive(false);
                 SFXManager.Instance.PlaySound(SoundType.Button, transform);
