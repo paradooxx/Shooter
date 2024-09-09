@@ -52,6 +52,7 @@ public class PlayerPanelUpdate : MonoBehaviour
         for (int i = 0; i < selectText.Length; i++)
         {
             selectText[i].text = "Select";
+            selectText[i].color = Color.white;
         }
 
         for (int i = 0; i < playerStats.Length; i++)
@@ -59,11 +60,13 @@ public class PlayerPanelUpdate : MonoBehaviour
             if (playerStats[i].isSelected)
             {
                 selectText[i].text = "Selected";
+                selectText[i].color = Color.green;
             }
 
             if (playerStats[i].isUnlocked)
             {
                 statusText[i].text = "Upgrade";
+                statusText[i].color = Color.white;
             }
         }
     }
@@ -73,6 +76,7 @@ public class PlayerPanelUpdate : MonoBehaviour
         for (int i = 0; i < selectText.Length; i++)
         {
             selectText[i].text = "Select";
+            selectText[i].color = Color.white;
         }
 
         for (int i = 0; i < playerStats.Length; i++)
@@ -80,6 +84,7 @@ public class PlayerPanelUpdate : MonoBehaviour
             if (playerStats[i].isSelected)
             {
                 selectText[i].text = "Selected";
+                selectText[i].color = Color.green;
             }
         }
     }
@@ -89,6 +94,7 @@ public class PlayerPanelUpdate : MonoBehaviour
         for (int i = 0; i < selectText.Length; i++)
         {
             selectText[i].text = "Select";
+            selectText[i].color = Color.white;
         }
     }
     
@@ -101,11 +107,12 @@ public class PlayerPanelUpdate : MonoBehaviour
                 if(playerStats[i].currentLevel == 5)
                 {
                     statusText[i].text = "Completed";
-                    Debug.Log("COMPLEEEEEETED");
+                    statusText[i].color = Color.green;
                 }
                 else if(playerStats[i].currentLevel < 5 && playerStats[i].currentLevel != 1)
                 {
                     statusText[i].text = "Upgrade";
+                    statusText[i].color = Color.white;
                 }
 
                 if(playerStats[i].currentLevel == 5)
@@ -134,10 +141,12 @@ public class PlayerPanelUpdate : MonoBehaviour
             if(playerStats.currentLevel == 5)
             {
                 statusText.text = "Completed";
+                statusText.color = Color.green;
             }
             else if(playerStats.currentLevel < 5 && playerStats.currentLevel != 1)
             {
                 statusText.text = "Upgrade";
+                statusText.color = Color.white;
             }
 
             if(playerStats.currentLevel == 5)

@@ -188,9 +188,9 @@ RectTransform:
   - {fileID: 1201353292}
   m_Father: {fileID: 392820758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361.00003, y: 522}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 311.00003, y: 522}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4142508
@@ -5154,11 +5154,11 @@ RectTransform:
   - {fileID: 923600202}
   m_Father: {fileID: 392820758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -333}
-  m_SizeDelta: {x: 232.781, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -287.99997}
+  m_SizeDelta: {x: 223.364, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &227809918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9767,10 +9767,10 @@ RectTransform:
   - {fileID: 1957412892}
   m_Father: {fileID: 572084771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -59}
-  m_SizeDelta: {x: -800, y: -1882}
+  m_SizeDelta: {x: 100, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394472218 stripped
 MonoBehaviour:
@@ -20919,7 +20919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &819839684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25988,7 +25988,7 @@ GameObject:
   - component: {fileID: 997455293}
   - component: {fileID: 997455295}
   m_Layer: 5
-  m_Name: loadingAnim
+  m_Name: LoadingAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26063,8 +26063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9366bca400d7f064aa3daab1cdc68cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Image: {fileID: 997455293}
-  m_SpriteArray:
+  image: {fileID: 997455293}
+  spriteArray:
   - {fileID: 1893313871, guid: 1feccbad391210f4c94a595de4847214, type: 3}
   - {fileID: -802643447, guid: 1feccbad391210f4c94a595de4847214, type: 3}
   - {fileID: -1305505588, guid: 1feccbad391210f4c94a595de4847214, type: 3}
@@ -26073,7 +26073,7 @@ MonoBehaviour:
   - {fileID: 1407827490, guid: 1feccbad391210f4c94a595de4847214, type: 3}
   - {fileID: -353915623, guid: 1feccbad391210f4c94a595de4847214, type: 3}
   - {fileID: 2011141996, guid: 1feccbad391210f4c94a595de4847214, type: 3}
-  m_Speed: 0.1
+  speed: 0.05
 --- !u!1 &1009819878
 GameObject:
   m_ObjectHideFlags: 0
@@ -26093,7 +26093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1009819879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43382,7 +43382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888184, y: 23.524}
+  m_AnchoredPosition: {x: 0, y: 23.52417}
   m_SizeDelta: {x: 775, y: 1045.406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729930696
@@ -47407,11 +47407,11 @@ RectTransform:
   - {fileID: 891619816}
   m_Father: {fileID: 392820758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -400}
-  m_SizeDelta: {x: 283.463, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -355}
+  m_SizeDelta: {x: 271.376, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1957412893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51528,7 +51528,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: e7bb7a3d9e868c34ab6761e1236dcd7a, type: 3}
   m_Controller: {fileID: 9100000, guid: ed045a43bca50c1448e0480a53a018cd, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -54245,7 +54245,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: e7bb7a3d9e868c34ab6761e1236dcd7a, type: 3}
   m_Controller: {fileID: 9100000, guid: ed045a43bca50c1448e0480a53a018cd, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

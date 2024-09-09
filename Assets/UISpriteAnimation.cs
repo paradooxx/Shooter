@@ -4,34 +4,34 @@ using UnityEngine.UI;
 
 public class UISpriteAnimation : MonoBehaviour
 {
-    [SerializeField] private Image m_Image;
-    [SerializeField] private Sprite[] m_SpriteArray;
-    public float m_Speed = 0.02f;
+    [SerializeField] private Image image;
+    [SerializeField] private Sprite[] spriteArray;
+    public float speed = 0.02f;
 
-    private int m_IndexSprite;
-    private Coroutine m_CoroutineAnim;
+    private int indexSprite;
+    private Coroutine coroutineAnimation;
 
     private void OnEnable()
     {
-        Func_PlayUIAnim();
+        PlayUIAnimation();
     }
 
-    public void Func_PlayUIAnim()
+    public void PlayUIAnimation()
     {
-        if (m_CoroutineAnim != null)
+        if (coroutineAnimation != null)
         {
-            StopCoroutine(m_CoroutineAnim);
+            StopCoroutine(coroutineAnimation);
         }
-        m_CoroutineAnim = StartCoroutine(Func_PlayAnimUI());
+        coroutineAnimation = StartCoroutine(PlayUIAnimationCoroutine());
     }
 
-    IEnumerator Func_PlayAnimUI()
+    IEnumerator PlayUIAnimationCoroutine()
     {
         while (true)
         {
-            m_Image.sprite = m_SpriteArray[m_IndexSprite];
-            m_IndexSprite = (m_IndexSprite + 1) % m_SpriteArray.Length;
-            yield return new WaitForSecondsRealtime(m_Speed);
+            image.sprite = spriteArray[indexSprite];
+            indexSprite = (indexSprite + 1) % spriteArray.Length;
+            yield return new WaitForSecondsRealtime(speed);
         }
     }
 }

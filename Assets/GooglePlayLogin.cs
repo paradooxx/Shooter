@@ -72,7 +72,7 @@ public class GooglePlayLogin : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Sign-in failed");
+            Debug.Log("Sign-in failed");
             ShowStandbyScreen("Authentication Failed. Please restart the app.");
             retryLoginPanel.gameObject.SetActive(true);
             successText.text = "Failed!";

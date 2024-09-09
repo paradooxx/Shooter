@@ -18,8 +18,8 @@ public class AdManager : MonoBehaviour
         Instance = this;
         //DontDestroyOnLoad(gameObject);
 
-        IronSource.Agent.validateIntegration();
         IronSource.Agent.init("1f68b8fa5");
+        IronSource.Agent.validateIntegration();
 
         LoadBannerAd();
         LoadInterstrialAd();

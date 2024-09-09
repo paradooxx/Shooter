@@ -77,7 +77,7 @@ public class PlayerChoice : MonoBehaviour
         }
     }
 
-    private void SelectPlayer(GameObject playerPrefab, PlayerStats playerStats, int index)
+    private void SelectPlayer(GameObject playerPrefab, PlayerStats playerStats,  int index)
     {
         if(playerStats.isUnlocked)
         {
@@ -115,6 +115,7 @@ public class PlayerChoice : MonoBehaviour
             if (playerStats.currentLevel == 4)
             {
                 statusText.text = "Completed";
+                statusText.color = Color.green;
                 Coins.UpdateUIandCoin(playerStats.upgradePrice[playerStats.currentLevel], false);
                 playerStats.currentLevel ++;
                 gameDataManager.PlayerCurrentLevel[index] ++; 
@@ -131,6 +132,7 @@ public class PlayerChoice : MonoBehaviour
                 gameDataManager.PlayerCurrentLevel[index] ++;
                 playerStats.UpdateStats();
                 statusText.text = "Upgrade";
+                statusText.color = Color.white;
                 levelText.text = "Level : " + playerStats.currentLevel;
                 playerPanelUpdate.UpdatePlayerUI(playerStats, statusText, levelText, priceText);
                 gameDataManager.SaveGameData(); 
@@ -138,6 +140,7 @@ public class PlayerChoice : MonoBehaviour
             else
             {
                 statusText.text = "Completed";
+                statusText.color = Color.green;
                 StartCoroutine(ShowError(notEnoughCoinMessage));
             }
             SFXManager.Instance.PlaySound(SoundType.Button, transform);
@@ -147,6 +150,7 @@ public class PlayerChoice : MonoBehaviour
             playerStats.isUnlocked = true;
             gameDataManager.IsPlayerUnlocked[index] = true;
             statusText.text = "Upgrade";
+            statusText.color = Color.white;
             Coins.UpdateUIandCoin(playerStats.initialPrice, false);
             playerPanelUpdate.UpdatePlayerUI(playerStats, statusText, levelText, priceText);
             SFXManager.Instance.PlaySound(SoundType.Button, transform);

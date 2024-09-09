@@ -28,17 +28,17 @@ public class WheelOfFortune : MonoBehaviour
 
     private void OnSpin()
     {
-        // AdManager.Instance.ShowRewardedAd((isRewarded) => 
-        // {
-        //     if(isRewarded)
-        //     {
+        AdManager.Instance.ShowRewardedAd((isRewarded) => 
+        {
+            if(isRewarded)
+            {
                 spinButtonText.text = "Spinning";
                 pickerWheel.SetTargetLabel(targetLabel);
                 pickerWheel.Spin();
                 pickerWheel.OnSpinEnd(wheelPiece => { UpdateRewardUI(wheelPiece.Amount); });
-        //         isRewarded = false;
-        //     }
-        // });
+                isRewarded = false;
+            }
+        });
     }
     
     private void UpdateRewardUI(int amount)
