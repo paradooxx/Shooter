@@ -66,42 +66,6 @@ public class PlayerController : MonoBehaviour
             animator.Play("LeftWalk", 1);
         }
     }
-
-    /* private void RotateTowardsNearestEnemy()
-    {
-        FindNearestEnemy();
-
-        if (enemy != null)
-        {
-            Vector3 direction = (enemy.transform.position - transform.position).normalized;
-            direction.y = 0; 
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-
-            Vector3 adjustedEulerAngles = lookRotation.eulerAngles;
-            if(isRotationNeeded)
-            {
-                adjustedEulerAngles.y += 66f;
-            }
-            lookRotation = Quaternion.Euler(adjustedEulerAngles);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-        }
-        else
-        {
-            // Set rotation to forward
-            Vector3 forwardDirection = Vector3.forward;
-            Quaternion lookRotation = Quaternion.LookRotation(forwardDirection);
-
-            Vector3 adjustedEulerAngles = lookRotation.eulerAngles;
-            if (isRotationNeeded)
-            {
-                adjustedEulerAngles.y += 66f;
-            }
-            lookRotation = Quaternion.Euler(adjustedEulerAngles);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-        }
-    } */
     
     private void RotateTowardsNearestEnemy()
     {

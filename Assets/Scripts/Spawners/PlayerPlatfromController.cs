@@ -9,9 +9,46 @@ public class PlayerPlatfromController : MonoBehaviour
 
     [SerializeField] private float sideLimit = 5f;
 
+    private Transform rightMostPlayer;
+    private Transform leftMostPlayer;
+
     private void Update()
     {
-        MovePlatform();
+        if(GameStateManager.CurrentGameState == GameState.Game)
+        {
+            FindLeftAndRightMostPlayer();
+            if(leftMostPlayer && rightMostPlayer)
+            {
+                MovePlatform();
+            }
+        }
+    }
+
+    private void FindLeftAndRightMostPlayer()
+    {
+        if(transform.childCount > 0)
+        {
+            leftMostPlayer = transform.GetChild(0);
+            rightMostPlayer = transform.GetChild(0);
+
+            foreach (Transform child in transform)
+            {
+                if (child.position.x < leftMostPlayer.position.x)
+                {
+                    leftMostPlayer = child;
+                }
+
+                if (child.position.x > rightMostPlayer.position.x)
+                {
+                    rightMostPlayer = child;
+                }
+            }
+        }
+        else
+        {
+            leftMostPlayer = null;
+            rightMostPlayer = null;
+        }
     }
 
     private void MovePlatform()
@@ -26,7 +63,6 @@ public class PlayerPlatfromController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-            //animator.Play("PlayerIdle");
         }
 
         if (isDragging)
@@ -34,21 +70,22 @@ public class PlayerPlatfromController : MonoBehaviour
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
             Vector3 newPosition = new Vector3(mousePosition.x + offsetX, transform.position.y, transform.position.z);
 
-            // Clamp the new position to the defined limits
-            newPosition.x = Mathf.Clamp(newPosition.x, -sideLimit, sideLimit);
-
-            if (newPosition.x > previousPosition.x)
+            if (leftMostPlayer == null || rightMostPlayer == null)
             {
-                isMovingRight = true;
+                return;
             }
-            else if (newPosition.x < previousPosition.x)
+
+            if (leftMostPlayer.position.x <= -sideLimit && newPosition.x < previousPosition.x)
             {
-                isMovingRight = false;
+                newPosition.x = previousPosition.x;
+            }
+            else if (rightMostPlayer.position.x >= sideLimit && newPosition.x > previousPosition.x)
+            {
+                newPosition.x = previousPosition.x;
             }
 
             transform.position = newPosition;
             previousPosition = newPosition;
-            //PlayerWalkAnimation();dasds
         }
     }
 }

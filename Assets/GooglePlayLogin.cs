@@ -27,90 +27,35 @@ public class GooglePlayLogin : MonoBehaviour
 
     private bool firstTimeLogin = false;
 
-    private void Awake()
+    void InitializePlayGamesLogin()
     {
-        // firstTimeLogin = PlayerPrefs.GetInt(firstTimeLoginStatus, 1) == 1;
-    }
+        var config = new PlayGamesClientConfiguration.Builder()
+            // Requests an ID token be generated.  
+            // This OAuth token can be used to
+            // identify the player to other services such as Firebase.
+            .RequestIdToken()
+            .Build();
 
-    private void Start()
-    {
+        PlayGamesPlatform.InitializeInstance(config);
+        PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
-        retryButton.onClick.AddListener(() => SignIn());
-        ShowStandbyScreen("Authenticating...");
-        // Social.localUser.Authenticate (ProcessAuthentication);
-        SignIn();
     }
 
-    public void SignIn()
+    void LoginGoogle()
     {
-        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+        Social.localUser.Authenticate(OnGoogleLogin);
     }
 
-    internal void ProcessAuthentication(SignInStatus signInStatus)
+    void OnGoogleLogin(bool success)
     {
-        if (signInStatus == SignInStatus.Success)
+        if (success)
         {
-            if(firstTimeLogin)
-            {
-                HideStandbyScreen();
-                confirmAgePanel.SetActive(true);
-                // PlayerPrefs.SetInt(firstTimeLoginStatus, firstTimeLogin ? 1 : 0);
-            }
-            else
-            {
-                confirmAgePanel.SetActive(false);
-                Invoke("LoadScene", 5f);
-            }
-            googleUserName.gameObject.SetActive(true);
-            googleUserId.gameObject.SetActive(true);
-            googleAvatarURL.gameObject.SetActive(true);
-            googleUserName.text = Social.localUser.userName;
-            googleUserId.text = Social.localUser.id;
-            Texture2D texture2D = Social.localUser.image;
-            // avatarImage.sprite = Sprite.Create(texture2D, new Rect (0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0f, 0f));
-            successText.text = "Succesful";
+            // Call Unity Authentication SDK to sign in or link with Google.
+            Debug.Log("Login with Google done. IdToken: " + ((PlayGamesLocalUser)Social.localUser).GetIdToken());
         }
         else
         {
-            Debug.Log("Sign-in failed");
-            ShowStandbyScreen("Authentication Failed. Please restart the app.");
-            retryLoginPanel.gameObject.SetActive(true);
-            successText.text = "Failed!";
-        }
-    }
-
-    private void ShowStandbyScreen(string message)
-    {
-        standbyPanel.SetActive(true);
-        if (statusText != null)
-        {
-            statusText.text = message;
-        }
-    }
-
-    private void HideStandbyScreen()
-    {
-        standbyPanel.SetActive(false);
-    }
-
-    //use if user avatar is required
-    private IEnumerator DownloadImage(string url)
-    {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-        {
-            Debug.LogError(request.error);
-        }
-        else
-        {
-            Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            if (texture != null)
-            {
-                Sprite avatarSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-                avatarImage.sprite = avatarSprite; // Set the downloaded avatar in the UI Image
-            }
+            Debug.Log("Unsuccessful login");
         }
     }
 
