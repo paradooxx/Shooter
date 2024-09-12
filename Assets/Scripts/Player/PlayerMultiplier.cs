@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class PlayerMultiplier : MonoBehaviour
 {
+    [Header("Player Objects")]
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject archerGameObject;
     [SerializeField] private GameObject knightGameObject;
     [SerializeField] private GameObject spearinGameObject;
     [SerializeField] private GameObject wizardGameObject;
+    [SerializeField] private GameObject soldierGameObject;
+
+    [Header("Others")]
     [SerializeField] private float spawnRadius = 3.0f;
     [SerializeField] private int maxAttempts = 10;
     [SerializeField] private LayerMask collisionMask;
@@ -16,12 +20,9 @@ public class PlayerMultiplier : MonoBehaviour
     private GameObject playerPlatform;
     private GameObject Player;
 
-    private Transform instantiatePoint;
-
     private void Start()
     {
         playerPlatform = GameObject.FindWithTag("PlayerPlatform");
-        //instantiatePoint = GameObject.FindWithTag("InstantiatePoint").transform;
     }
 
     public void PlayerInstant()
@@ -45,6 +46,10 @@ public class PlayerMultiplier : MonoBehaviour
         else if(barrelTag == "Wizard")
         {
             PlayerInstantiate(wizardGameObject);
+        }
+        else if(barrelTag == "Soldier")
+        {
+            PlayerInstantiate(soldierGameObject);
         }
     }
 

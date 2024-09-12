@@ -38,7 +38,7 @@ namespace GooglePlayGames {
 
         public const string ApplicationId = "980935417835"; // Filled in automatically
         public const string IosClientId = "__IOS_CLIENTID__"; // Filled in automatically
-        public const string WebClientId = "980935417835-epf3bhk1uni19gcnd7brjrrdjgj3oope.apps.googleusercontent.com"; // Filled in automatically
+        public const string WebClientId = "980935417835-p3cl7h8s20s1c3hl6f38ijr8ul7ck9jh.apps.googleusercontent.com"; // Filled in automatically
         public const string NearbyConnectionServiceId = "com.sapniverse.nightfall";
 
         public static bool ApplicationIdInitialized() {

@@ -59,13 +59,7 @@ public class GooglePlayLogin : MonoBehaviour
                     // Invoke("LoadScene", 5f);
                 }
                 // avatarImage.sprite = Sprite.Create(texture2D, new Rect (0.0f, 0.0f, texture2D.width, texture2D.height), new Vector2(0f, 0f));
-                successText.text = "Succesful";
-                PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
-                    {
-                        Debug.Log("Authorization code: " + code);
-                        googleUserId.text = code;
-    // This token serves as an example to be used for SignInWithGooglePlayGames
-                    });
+                StartCoroutine(GetID());
             }
             else
             {
@@ -76,6 +70,19 @@ public class GooglePlayLogin : MonoBehaviour
             }
         }
     });
+    }
+
+    private IEnumerator GetID()
+    {
+        yield return new WaitForSeconds(1f);
+        successText.text = "Succesful";
+                PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
+                    {
+                        Debug.Log("Authorization code: " + code);
+                        googleUserId.text = code;
+                        googleUserName.text = Social.localUser.userName;
+    // This token serves as an example to be used for SignInWithGooglePlayGames
+                    });
     }
 
     private void ShowStandbyScreen(string message)

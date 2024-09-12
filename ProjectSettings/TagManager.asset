@@ -10,16 +10,11 @@ TagManager:
   - Bullet
   - WeaponSelect
   - Rifle
-  - PlayerX
   - AttackArea
   - Pistol
-  - ArcherX
   - ClickBlock
   - Slash
-  - WizardX
-  - KnightX
   - Special
-  - SpearinX
   - PlayerPlatform
   - InstantiatePoint
   layers:

@@ -81,12 +81,7 @@ public class ShopManager : MonoBehaviour
         CoinAnimation.Instance.CountCoins();
     }
 
-    private void PrivacyPolicy()
-    {
-        Application.OpenURL("https://sapniverse.com/gamesprivacy");
-    }
-    private void TermsOfService()
-    {
-        Application.OpenURL("https://sapniverse.com/gamesterms");
-    }
+    private void PrivacyPolicy() => Application.OpenURL("https://sapniverse.com/gamesprivacy");
+    private void TermsOfService() => Application.OpenURL("https://sapniverse.com/gamesterms");
+    
 }
